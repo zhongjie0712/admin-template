@@ -1,0 +1,13 @@
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
+
+/* sidebar 隐藏时候图标居中 */
+.el-scrollbar__wrap {
+  margin-right: 0px !important;
+}
+/* start of siderBar 边框 */
+.sidebar-container .el-menu {
+  border: none;
+}
