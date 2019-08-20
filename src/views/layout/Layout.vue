@@ -36,7 +36,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@as/style/variables.scss";
-$navbarContainerHeigt: 100px;
+$navbarContainerHeigt: 140px;
 .layout {
   display: flex;
 }

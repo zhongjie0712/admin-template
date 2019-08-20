@@ -21,7 +21,7 @@ export default new Router({
           path: "",
           name: "Home",
           component: () => import("@views/home/Home"),
-          meta: { title: "Home", icon: "el-icon-menu" }
+          meta: { title: "中国农业银行湖南分行", icon: "el-icon-menu" }
         }
       ]
     },
@@ -30,13 +30,27 @@ export default new Router({
       name: "Shop",
       component: Layout,
       redirect: "/shop/phone",
-      meta: { title: "Shop", icon: "el-icon-goods" },
+      meta: { title: "Shop", icon: "el-icon-goods", lv: true },
       children: [
         {
           path: "phone",
           name: "Phone",
           component: () => import("@views/shop/Phone"),
-          meta: { title: "Phone", icon: "el-icon-mobile-phone" }
+          meta: { title: "Phone", icon: "el-icon-mobile-phone" },
+          children: [
+            {
+              path: "phone",
+              name: "Phone",
+              component: () => import("@views/shop/Phone"),
+              meta: { title: "Phone", icon: "el-icon-mobile-phone" }
+            },
+            {
+              path: "pc",
+              name: "Pc",
+              component: () => import("@views/shop/Pc"),
+              meta: { title: "PC", icon: "el-icon-picture-outline" }
+            }
+          ]
         },
         {
           path: "pc",

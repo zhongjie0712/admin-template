@@ -35,12 +35,12 @@ export default {
       console.log(matched);
       if (matched[0].name == "Home") {
         this.levelList = [
-          { path: "/home", name: "Home", meta: { title: "Home" } }
+          { path: "/home", name: "Home", meta: { title: "首页" } }
         ];
         // console.log("home")
       } else {
         this.levelList = [
-          { path: "/home", name: "Home", meta: { title: "Home" } }
+          { path: "/home", name: "Home", meta: { title: "首页" } }
         ].concat(matched);
       }
     }

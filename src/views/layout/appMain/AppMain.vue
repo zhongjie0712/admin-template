@@ -9,23 +9,23 @@
 
 <script>
 export default {
-  name: 'AppMain',
+  name: "AppMain",
   computed: {
     key() {
-      return this.$route.path
+      return this.$route.path;
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
- .app-main {
+.app-main {
   // min-height: calc(100vh - 100px);
   // width: 100%;
   position: relative;
   overflow: hidden;
 }
-.fixed-header+.app-main {
+.fixed-header + .app-main {
   padding-top: 50px;
 }
 </style>
@@ -35,5 +35,5 @@ export default {
   .fixed-header {
     padding-right: 15px;
   }
-} 
+}
 </style>

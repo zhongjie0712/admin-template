@@ -11,3 +11,20 @@
 .sidebar-container .el-menu {
   border: none;
 }
+
+/* 侧边导航栏隐藏文字时将箭头也隐藏 */
+.el-menu--collapse {
+  .el-submenu__icon-arrow {
+    visibility: hidden;
+  }
+}
+
+// .el-submenu [class^="el-icon-"] {
+//   margin-right: 20px;
+// }
+// .el-icon-menu[class^="el-icon-"] {
+//   margin-right: 20px;
+// }
+// .el-menu-item [class^="el-icon-"] {
+//   margin-right: 20px;
+// }
