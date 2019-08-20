@@ -1,14 +1,14 @@
 <template>
   <div class="layout">
-    <el-scrollbar class="sidebar-container">
+    <!-- <el-scrollbar class="sidebar-container"> -->
       <sidebar />
-    </el-scrollbar>
+    <!-- </el-scrollbar> -->
 
     <div class="main-container">
-      <div :class="{'fixed-header':fixedHeader}" class="navbar-container p-2">
+      <div class="navbar-container">
         <navbar />
       </div>
-      <app-main class="app-main-container p-2" />
+      <app-main class="app-main-container" />
     </div>
   </div>
 </template>
@@ -36,7 +36,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@as/style/variables.scss";
-$navbarContainerHeigt: 140px;
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: $sideBarWidth;
+  min-height: 100vh;
+}
 .layout {
   display: flex;
 }
@@ -57,21 +60,5 @@ $navbarContainerHeigt: 140px;
     height: calc(100% - $navbarContainerHeigt);
   }
 }
-/* .fixed-header {
-  position: fixed;
-  top: 0;
-  right: 0;
-  z-index: 9;
-  width: calc(100% - #{$sideBarWidth});
-  transition: width 0.28s;
-}
-
-.hideSidebar .fixed-header {
-  width: calc(100% - 54px);
-}
-
-.mobile .fixed-header {
-  width: 100%;
-} */
 </style>
 

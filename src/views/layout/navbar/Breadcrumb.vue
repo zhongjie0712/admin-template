@@ -3,7 +3,7 @@
     <el-breadcrumb class="app-breadcrumb" separator-class="el-icon-arrow-right">
       <transition-group name="breadcrumb">
         <el-breadcrumb-item v-for="item in levelList" :key="item.path">
-          <a @click="toRoute(item.name)">{{item.meta.title}}</a>
+          <a @click="toRoute(item.name)" class="mr-2">{{item.meta.title}}</a>
         </el-breadcrumb-item>
       </transition-group>
     </el-breadcrumb>

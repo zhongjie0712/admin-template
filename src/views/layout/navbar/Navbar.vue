@@ -1,7 +1,6 @@
 <template>
   <div class="nav">
-    <h1>nav</h1>
-    <div class="x-flex ai-center">
+    <div class="x-flex ai-center bg-white p-2">
       <el-button
         type="primary"
         :icon="iconArrow ?'el-icon-arrow-right':'el-icon-arrow-left'"
@@ -9,23 +8,23 @@
         plain
         @click.native.prevent="togglerSideBar"
       ></el-button>
-      <breadcrumb />
+      <h3 class="m-3">admin管理平台</h3>
     </div>
     <div>
-      <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="用户管理" name="first" />
-        <el-tab-pane label="配置管理" name="second" />
-        <el-tab-pane label="角色管理" name="third" />
-        <el-tab-pane label="定时任务补偿" name="fourth" />
-      </el-tabs>
+      <breadcrumb />
+    </div>
+    <div class="tagBar pt-1 pb-1">
+      <tags style="flex:1;" />
+      <el-button type="danger" size="mini" style="margin-left:10px;">关闭所有</el-button>
     </div>
   </div>
 </template>
 
 <script>
 import breadcrumb from "./Breadcrumb";
+import tags from "./Tags";
 export default {
-  components: { breadcrumb },
+  components: { breadcrumb, tags },
   data() {
     return {
       iconArrow: false,
@@ -46,8 +45,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .tagBar {
-  // display: flex;
-  border-top: 2px solid forestgreen;
-  border-bottom: 2px solid forestgreen;
+  display: flex;
+  justify-content: space-between;
+  padding:5px 15px;
+  background-color: #fff;
+  // border-top: 2px solid forestgreen;
+  // border-bottom: 2px solid forestgreen;
 }
 </style>
