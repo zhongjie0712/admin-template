@@ -93,6 +93,30 @@ export default {
           title: "Tab 15",
           name: "15",
           content: "Tab 15 content"
+        },{
+          title: "Tab 16",
+          name: "16",
+          content: "Tab 16 content"
+        },
+        {
+          title: "Tab 17",
+          name: "17",
+          content: "Tab 17 content"
+        },
+        {
+          title: "Tab 18",
+          name: "18",
+          content: "Tab 18 content"
+        },
+        {
+          title: "Tab 19",
+          name: "19",
+          content: "Tab 19 content"
+        },
+        {
+          title: "Tab 20",
+          name: "20",
+          content: "Tab 20 content"
         }
       ],
       tabIndex: 2
@@ -137,6 +161,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .tabs {
-  // width: calc(100vw - 350px);
+  width: calc(100vw - 350px);
 }
 </style>

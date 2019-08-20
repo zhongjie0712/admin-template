@@ -14,7 +14,7 @@
       <breadcrumb />
     </div>
     <div class="tagBar pt-1 pb-1">
-      <tags style="flex:1;" />
+      <tags/>
       <el-button type="danger" size="mini" style="margin-left:10px;">关闭所有</el-button>
     </div>
   </div>
@@ -46,7 +46,7 @@ export default {
 <style lang="scss" scoped>
 .tagBar {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   padding:5px 15px;
   background-color: #fff;
   // border-top: 2px solid forestgreen;
