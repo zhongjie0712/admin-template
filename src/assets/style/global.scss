@@ -17,7 +17,7 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #f1f1f1;
+  background-color: rgb(245, 246, 250);
   // line-height: 1.2em;
 }
 
@@ -34,6 +34,9 @@ li {
 }
 .dp-ib {
   display: inline-block;
+}
+.dp-i{
+  display: inline;
 }
 
 /* end of 通用全局设置*/
@@ -77,6 +80,8 @@ $font-sizes: (
 
 //color
 $colors: (
+  // "bank": rgb(53, 181, 151),
+  "bank":  #009882,
   "black": #000,
   "white": #fff,
   "light": #f9f9f9,
@@ -211,11 +216,19 @@ $spacing-sizes: (
   }
 }
 
-.tran {
+.ab-center {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index:10;
+}
+.re-center {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index:10;
 }
 // end of margin
 /**********************************************************/

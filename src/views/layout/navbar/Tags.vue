@@ -19,7 +19,7 @@
         </span>
       </el-tab-pane>
     </el-tabs>
-    <el-dropdown split-button type="primary" size="mini" @command="handleCommand">
+    <el-dropdown split-button type="danger" size="mini" @command="handleCommand">
       更多菜单
       <el-dropdown-menu slot="dropdown">
         <el-dropdown-item command="toHome">返回首页</el-dropdown-item>
@@ -91,12 +91,15 @@ export default {
 .tagBar {
   display: flex;
   justify-content: left;
-  padding: 5px 15px;
+  padding: 0.5rem;
   background-color: #fff;
-  border-top: 2px solid forestgreen;
-  border-bottom: 2px solid forestgreen;
+  box-shadow: 0 0px 27px 3px #ddd;
+  -moz-box-shadow:  0 0px 27px 3px #ddd;
+  -webkit-box-shadow:  0 0px 27px 3px #ddd;
+  // border-top: 2px solid forestgreen;
+  // border-bottom: 2px solid forestgreen;
   .tabs {
-    width: calc(100vw - 350px);
+    width: calc(100vw - 340px);
   }
   .el-dropdown {
     vertical-align: top;

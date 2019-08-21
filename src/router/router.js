@@ -46,7 +46,7 @@ const SIDEBAR_MENUS = [
         meta: { title: "TV", icon: "el-icon-picture-outline" }
       }
     ]
-  }
+  },
 ];
 
 export default new Router({
