@@ -1,166 +1,111 @@
 <template>
-  <div>
-    <el-tabs class="tabs" v-model="editableTabsValue" type="card" @edit="handleTabsEdit">
+  <div class="tagBar">
+    <el-tabs
+      class="tabs"
+      type="card"
+      :value="activeTagName"
+      @tab-click="routerPush"
+      @tab-remove="removeTab"
+    >
       <el-tab-pane
         :key="item.name"
-        v-for="(item, index) in editableTabs"
-        :label="item.title"
+        v-for="item in tagList"
+        :closable="item.meta.title!='首页'"
         :name="item.name"
-        :closable="item.name!='1'"
-      ></el-tab-pane>
+      >
+        <span slot="label">
+          <i :class="item.meta.icon"></i>
+          {{item.meta.title}}
+        </span>
+      </el-tab-pane>
     </el-tabs>
+    <el-dropdown split-button type="primary" size="mini" @command="handleCommand">
+      更多菜单
+      <el-dropdown-menu slot="dropdown">
+        <el-dropdown-item command="toHome">返回首页</el-dropdown-item>
+        <el-dropdown-item command="closeAll">关闭所有标签</el-dropdown-item>
+      </el-dropdown-menu>
+    </el-dropdown>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {
-      editableTabsValue: "1",
-      editableTabs: [
-        {
-          title: "Tab 1",
-          name: "1",
-          content: "Tab 1 content"
-        },
-        {
-          title: "Tab 2",
-          name: "2",
-          content: "Tab 2 content"
-        },
-        {
-          title: "Tab 3",
-          name: "3",
-          content: "Tab 3 content"
-        },
-        {
-          title: "Tab 4",
-          name: "4",
-          content: "Tab 4 content"
-        },
-        {
-          title: "Tab 5",
-          name: "5",
-          content: "Tab 5 content"
-        },
-        {
-          title: "Tab 6",
-          name: "6",
-          content: "Tab 6 content"
-        },
-        {
-          title: "Tab 7",
-          name: "7",
-          content: "Tab 4 content"
-        },
-        {
-          title: "Tab 8",
-          name: "8",
-          content: "Tab 8 content"
-        },
-        {
-          title: "Tab 9",
-          name: "9",
-          content: "Tab 9 content"
-        },
-
-        {
-          title: "Tab 10",
-          name: "10",
-          content: "Tab 10 content"
-        },
-        {
-          title: "Tab 11",
-          name: "11",
-          content: "Tab 11 content"
-        },
-        {
-          title: "Tab 12",
-          name: "12",
-          content: "Tab 12 content"
-        },
-        {
-          title: "Tab 13",
-          name: "13",
-          content: "Tab 13 content"
-        },
-        {
-          title: "Tab 14",
-          name: "14",
-          content: "Tab 14 content"
-        },
-        {
-          title: "Tab 15",
-          name: "15",
-          content: "Tab 15 content"
-        },{
-          title: "Tab 16",
-          name: "16",
-          content: "Tab 16 content"
-        },
-        {
-          title: "Tab 17",
-          name: "17",
-          content: "Tab 17 content"
-        },
-        {
-          title: "Tab 18",
-          name: "18",
-          content: "Tab 18 content"
-        },
-        {
-          title: "Tab 19",
-          name: "19",
-          content: "Tab 19 content"
-        },
-        {
-          title: "Tab 20",
-          name: "20",
-          content: "Tab 20 content"
-        }
-      ],
-      tabIndex: 2
-    };
+    return {};
+  },
+  watch: {
+    $route(v) {
+      this.searchTags(v) && this.$store.commit("set_tagList", v);
+    }
   },
   computed: {
-    isCollapse() {
-      return this.$store.state.isCollapse;
+    tagList() {
+      return this.$store.getters.get_tagList;
+    },
+    activeTagName() {
+      return this.$route.name;
     }
   },
   methods: {
-    handleTabsEdit(targetName, action) {
-      if (action === "add") {
-        let newTabName = ++this.tabIndex + "";
-        this.editableTabs.push({
-          title: "New Tab",
-          name: newTabName,
-          content: "New Tab content"
-        });
-        this.editableTabsValue = newTabName;
+    // 标签下拉菜单
+    handleCommand(command) {
+      //返回首页
+      if (command === "toHome") {
+        this.$router.push({ name: "Home" });
+      } else if (command === "closeAll") {
+        //挂你所有标签
+        this.tagList.splice(1);
+        this.$router.push({ name: "Home" });
       }
-      if (action === "remove") {
-        let tabs = this.editableTabs;
-        let activeName = this.editableTabsValue;
-        if (activeName === targetName) {
-          tabs.forEach((tab, index) => {
-            if (tab.name === targetName) {
-              let nextTab = tabs[index + 1] || tabs[index - 1];
-              if (nextTab) {
-                activeName = nextTab.name;
-              }
-            }
-          });
+    },
+    // 点击标签跳转
+    routerPush(tab) {
+      this.$router.push({ name: tab.name });
+    },
+    //关闭标签
+    removeTab(targetName) {
+      let tagIndex = this.tagList.findIndex(item => {
+        return item.name === targetName; //返回对象所在数组中的下标
+      });
+      if (this.$route.name === targetName) {
+        this.tagList.splice(tagIndex, 1);
+        this.$router.push({ name: this.tagList[tagIndex - 1].name });
+      } else {
+        this.tagList.splice(tagIndex, 1);
+      }
+    },
+    //查找新打开路由是否存在在tag数组里
+    searchTags(r) {
+      for (let i of this.tagList) {
+        if (i.meta.title === r.meta.title) {
+          return false;
         }
-
-        this.editableTabsValue = activeName;
-        this.editableTabs = tabs.filter(tab => tab.name !== targetName);
       }
+      return true;
     }
   }
 };
 </script>
 <style lang="scss" scoped>
-.tabs {
-  width: calc(100vw - 350px);
+.tagBar {
+  display: flex;
+  justify-content: left;
+  padding: 5px 15px;
+  background-color: #fff;
+  border-top: 2px solid forestgreen;
+  border-bottom: 2px solid forestgreen;
+  .tabs {
+    width: calc(100vw - 350px);
+  }
+  .el-dropdown {
+    vertical-align: top;
+  }
+  .el-dropdown + .el-dropdown {
+    margin-left: 15px;
+  }
+  .el-icon-arrow-down {
+    font-size: 12px;
+  }
 }
 </style>

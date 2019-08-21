@@ -13,13 +13,9 @@
     <div>
       <breadcrumb />
     </div>
-    <div class="tagBar pt-1 pb-1">
-      <tags/>
-      <el-button type="danger" size="mini" style="margin-left:10px;">关闭所有</el-button>
-    </div>
+    <tags />
   </div>
 </template>
-
 <script>
 import breadcrumb from "./Breadcrumb";
 import tags from "./Tags";
@@ -36,20 +32,9 @@ export default {
     togglerSideBar() {
       this.iconArrow = !this.iconArrow;
       this.$store.commit("isCollapse");
-    },
-    handleClick(tab, event) {
-      console.log(tab, event);
     }
   }
 };
 </script>
 <style lang="scss" scoped>
-.tagBar {
-  display: flex;
-  justify-content: left;
-  padding:5px 15px;
-  background-color: #fff;
-  // border-top: 2px solid forestgreen;
-  // border-bottom: 2px solid forestgreen;
-}
 </style>

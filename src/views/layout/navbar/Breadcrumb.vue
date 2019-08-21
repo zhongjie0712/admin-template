@@ -32,7 +32,7 @@ export default {
       let matched = this.$route.matched.filter(
         item => item.meta && item.meta.title
       );
-      console.log(matched);
+      // console.log(matched);
       if (matched[0].name == "Home") {
         this.levelList = [
           { path: "/home", name: "Home", meta: { title: "首页" } }
