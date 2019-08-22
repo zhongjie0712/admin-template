@@ -8,7 +8,6 @@ const SIDEBAR_MENUS = [
   //* 首页
   {
     path: "/home",
-    // name: "Home",
     component: Layout,
     children: [
       {
@@ -46,13 +45,13 @@ const SIDEBAR_MENUS = [
         meta: { title: "TV", icon: "el-icon-picture-outline" }
       }
     ]
-  },
+  }
 ];
 
 export default new Router({
   routes: [
     {
-      path: "/",
+      path: "/login",
       name: "Login",
       component: Login,
       hidden: true

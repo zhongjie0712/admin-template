@@ -3,7 +3,7 @@
     <!-- 有子路由，且只有一个子路由 -->
     <el-menu-item
       v-if="item.children && item.children.length==1"
-      :index="item.name"
+      :index="item.children[0].name"
       @click="toRoute(item.children[0].name)"
     >
       <i :class="item.children[0].meta.icon"></i>
