@@ -4,7 +4,7 @@ import Login from "@views/login/Login";
 import Layout from "@views/layout/Layout";
 Vue.use(Router);
 
-const SIDEBAR_MENUS = [
+/* const SIDEBAR_MENUS = [
   //* 首页
   {
     path: "/home",
@@ -60,7 +60,7 @@ const SIDEBAR_MENUS = [
       }
     ]
   }
-];
+]; */
 
 export default new Router({
   routes: [
@@ -74,7 +74,7 @@ export default new Router({
       name: "Login",
       component: Login,
       hidden: true
-    },
-    ...SIDEBAR_MENUS
+    }
+    // ...SIDEBAR_MENUS
   ]
 });

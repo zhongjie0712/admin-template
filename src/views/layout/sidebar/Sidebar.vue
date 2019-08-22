@@ -80,8 +80,11 @@ export default {
     };
   },
   computed: {
-    routes() {
+   /*  routes() {
       return this.$router.options.routes;
+    }, */
+    routes() {
+      return global.antRouter
     },
     isCollapse() {
       return this.$store.state.isCollapse;
