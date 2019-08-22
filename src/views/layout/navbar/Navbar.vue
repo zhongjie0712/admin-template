@@ -19,7 +19,7 @@
       <div>
         <span class="mr-3 font-xs">
           欢迎
-          <a href="javascript:;">{{testUser}}</a>
+          <el-link :underline="false" type="success">{{testUser}}</el-link>
         </span>
         <el-dropdown>
           <el-button size="mini">

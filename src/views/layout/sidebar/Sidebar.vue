@@ -5,24 +5,25 @@
       <el-radio-button :label="false">展开</el-radio-button>
       <el-radio-button :label="true">收起</el-radio-button>
   </el-radio-group>-->
-    <el-menu
-      :default-active="$route.name"
-      class="el-menu-vertical-demo"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
-      @open="handleOpen"
-      @close="handleClose"
-      :collapse="isCollapse"
-      mode="vertical"
-    >
-      <sidebar-item
-        v-for="route in routes"
-        :key="route.path"
-        :item="route"
-        :base-path="route.path"
-      />
-      <!-- <el-submenu index="1">
+  <el-menu
+    :default-active="$route.name"
+    class="el-menu-vertical-demo"
+    background-color="#545c64"
+    text-color="#fff"
+    active-text-color="#ffd04b"
+    @open="handleOpen"
+    @close="handleClose"
+    :collapse="isCollapse"
+    mode="vertical"
+  >
+    <!-- <img src="../../../assets/img/logo_mini2.png" alt=""> -->
+    <div class="menu_top_img">
+      <img v-if="isCollapse" src="../../../assets/img/logo_mini2.png" alt width="45" height="45" />
+      <img v-else src="../../../assets/img/logo2.png" alt width="200" height="45" />
+    </div>
+    <sidebar-item v-for="route in routes" :key="route.path" :item="route" :base-path="route.path" />
+
+    <!-- <el-submenu index="1">
       <template slot="title">
         <i class="el-icon-location"></i>
         <span slot="title">导航一</span>
@@ -65,8 +66,8 @@
     <el-menu-item index="3">
       <i class="el-icon-setting"></i>
       <span slot="title">导航三</span>
-      </el-menu-item>-->
-    </el-menu>
+    </el-menu-item>-->
+  </el-menu>
 </template>
 
 <script>
@@ -97,4 +98,13 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.el-menu-vertical-demo {
+  overflow: hidden;
+  .menu_top_img {
+    text-align: center;
+    img {
+      margin-top: 1rem;
+    }
+  }
+}
 </style>
