@@ -3,7 +3,7 @@
     <div class="login_top">
       <div class="login_top_title">
         <img src="../../assets/img/logo_mini2.png" alt />
-        <h1 class="text-bank ml-3">中国农业银行湖南分行</h1>
+        <h1 class="text-bank ml-3">银行</h1>
       </div>
     </div>
     <div class="login_middle">
