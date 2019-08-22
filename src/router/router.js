@@ -7,11 +7,11 @@ Vue.use(Router);
 const SIDEBAR_MENUS = [
   //* 首页
   {
-    path: "/home",
+    path: "/",
     component: Layout,
     children: [
       {
-        path: "",
+        path: "home",
         name: "Home",
         component: () => import("@views/home/Home"),
         meta: { title: "首页", icon: "el-icon-menu" }

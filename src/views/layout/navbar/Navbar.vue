@@ -3,13 +3,16 @@
     <div class="nav-top x-flex ai-center jc-between">
       <!-- 左侧信息 -->
       <div class="x-flex ai-center">
-        <el-button
+        <!-- <el-button
           type="primary"
-          :icon="iconArrow ?'el-icon-arrow-right':'el-icon-arrow-left'"
+          :icon="iconArrow ?'el-icon-s-unfold':'el-icon-s-fold'"
           size="mini"
           plain
           @click.native.prevent="togglerSideBar"
-        ></el-button>
+        ></el-button>-->
+        <a href="javascript:;" @click="togglerSideBar" style="color:black">
+          <i :class="iconArrow ?'el-icon-s-unfold':'el-icon-s-fold'" style="font-size:30px;" />
+        </a>
         <h3 class="m-3 dp-ib">admin管理平台</h3>
       </div>
       <!-- 右侧用户信息栏 -->
@@ -62,7 +65,7 @@ export default {
   padding: 0.5rem;
   background-color: #fff;
   box-shadow: 0 0px 27px 3px #ddd;
-  -moz-box-shadow:  0 0px 27px 3px #ddd;
+  -moz-box-shadow: 0 0px 27px 3px #ddd;
   -webkit-box-shadow: 0 0px 27px 3px #ddd;
 }
 </style>
